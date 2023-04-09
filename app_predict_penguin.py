@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title("My ML Workshop")
 
-tab1, tab2, tab3 = st.tabs(["Penguin Prediction", "Evaluation"])
+tab1, tab2, tab3 = st.tabs(["Penguin Prediction", "Evaluation","About"])
 
 with tab1:
     model = pickle.load(open('model.penguins.sav','rb'))
