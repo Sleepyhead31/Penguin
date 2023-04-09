@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title("My ML Workshop")
 
-tab1, tab2, tab3 = st.tabs(["Penguin Prediction", "Evaluation","About"])
+tab1, tab2 = st.tabs(["Penguin Prediction", "Evaluation"])
 
 with tab1:
     model = pickle.load(open('model.penguins.sav','rb'))
@@ -61,7 +61,4 @@ with tab2:
     st.plotly_chart(fig, use_container_width=True)
 
     st.dataframe(evaluations)
-    
-with tab3:
-    
-    st.title("64130700324 Patcharnon Surathip")
+
