@@ -38,11 +38,11 @@ with tab1:
         st.write('Predicted Species: ' , species_encoder.inverse_transform(pred)[0])
 
 with tab2:
-    	st.header("Evaluations on Five Techniques")
-    	evaluations = pickle.load(open('evals.all.sav','rb'))
+    st.header("Evaluations on Five Techniques")
+    evaluations = pickle.load(open('evals.all.sav','rb'))
     
-    	x = evaluations.columns
-        fig = px.Figure(data=[
+    x = evaluations.columns
+    fig = px.Figure(data=[
             px.Bar(name = 'Decision Tree',
                    x = x,
                    y = evaluations.loc['Decision Tress']),
@@ -59,6 +59,6 @@ with tab2:
                    x = x,
                    y =  evaluations.loc['XGBoost'])
         ])
-        st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
 
-        st.dataframe(evaluations)
+    st.dataframe(evaluations)
