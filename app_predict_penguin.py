@@ -5,6 +5,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 import streamlit as st 
+import plotly.graph_objects as px
 
 st.title("My ML Workshop")
 
