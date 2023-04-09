@@ -9,7 +9,7 @@ import plotly.graph_objects as px
 
 st.title("My ML Workshop")
 
-tab1, tab2 = st.tabs(["Penquin Prediction", "Evaluation"])
+tab1, tab2, tab3 = st.tabs(["Penquin Prediction", "Evaluation","About"])
 
 with tab1:
 
@@ -64,3 +64,6 @@ with tab2:
     st.plotly_chart(fig, use_container_width=True)
     
     st.dataframe(evaluations)
+
+with tab3:
+    st.title("64130700324 Patcharnon Surathip")
