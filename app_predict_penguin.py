@@ -6,6 +6,12 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 import streamlit as st 
 
+st.title("My ML Workshop")
+
+tab1, tab2, tab3 = st.tabs(["Penquin Prediction", "Evaluation", "About"])
+
+with tab1:
+
 model = pickle.load(open('model.penguins.sav','rb'))
 species_encoder = pickle.load(open('encoder.species.sav','rb'))
 island_encoder = pickle.load(open('encoder.island.sav','rb'))
@@ -31,3 +37,28 @@ pred = model.predict(x_new)
 
 st.write('Predicted Species: ' , species_encoder.inverse_transform(pred)[0])
 
+with tab2:
+    st.header("Evaluations on Five Techniques")
+    evaluations = pickle.load(open('evals.all.sav','rb'))
+    
+    x = evaluations.columns
+        fig = px.Figure(data=[
+            px.Bar(name = 'Decision Tree',
+                   x = x,
+                   y = evaluations.loc['Decision Tress']),
+            px.Bar(name = 'Random Forest',
+                   x = x,
+                   y =  evaluations.loc['Random Forest']),
+            px.Bar(name = 'KNN',
+                   x = x,
+                   y =  evaluations.loc['KNN']),
+            px.Bar(name = 'AdaBoost',
+                   x = x,
+                   y =  evaluations.loc['AdaBoost']),
+            px.Bar(name = 'XGBoost',
+                   x = x,
+                   y =  evaluations.loc['XGBoost'])
+        ])
+        st.plotly_chart(fig, use_container_width=True)
+
+        st.dataframe(evaluations)
