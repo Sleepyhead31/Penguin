@@ -16,9 +16,9 @@ with tab1:
     species_encoder = pickle.load(open('encoder.species.sav','rb'))
     island_encoder = pickle.load(open('encoder.island.sav','rb'))
     sex_encoder = pickle.load(open('encoder.sex.sav','rb'))
-    evaluations = pickle.load(open('evals.all.sav','rb'))
 
-    st.title('Penguin Species Prection :) ')
+
+    st.header('Penguin Species Prection :) ')
 
     x1 = st.radio('Select island', island_encoder.classes_)
     x1 = island_encoder.transform([x1])[0]
@@ -41,6 +41,7 @@ with tab2:
     st.header("Evaluations on Five Techniques")
     evaluations = pickle.load(open('evals.all.sav','rb'))
     
+    
     x = evaluations.columns
     fig = px.Figure(data=[
         px.Bar(name = 'Decision Tree',
@@ -48,19 +49,17 @@ with tab2:
                y = evaluations.loc['Decision Tress']),
         px.Bar(name = 'Random Forest',
                x = x,
-               y = evaluations.loc['Random Forest']),
+               y =  evaluations.loc['Random Forest']),
         px.Bar(name = 'KNN',
                x = x,
-               y = evaluations.loc['KNN']),
+               y =  evaluations.loc['KNN']),
         px.Bar(name = 'AdaBoost',
                x = x,
-               y = evaluations.loc['AdaBoost']),
+               y =  evaluations.loc['AdaBoost']),
         px.Bar(name = 'XGBoost',
                x = x,
-               y = evaluations.loc['XGBoost'])
+               y =  evaluations.loc['XGBoost'])
     ])
-
     st.plotly_chart(fig, use_container_width=True)
     
     st.dataframe(evaluations)
-    
