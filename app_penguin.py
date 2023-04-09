@@ -9,6 +9,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 
 
+
+
 model = pickle.load(open('model.penguins.sav','rb'))
 species_encoder = pickle.load(open('encoder.species.sav','rb'))
 island_encoder = pickle.load(open('encoder.island.sav','rb'))
@@ -29,7 +31,7 @@ st.title("Penguin Species Predition")
 เพกวินเป็นนก ... แต่บินไม่ได้
 
 '''
-    
+    tab1, tab2, tab3 = st.tabs(["Cat", "Dog", "Owl"])
 with st.sidebar:
         menuItem = option_menu("Penguin",
                                ["Prediction", "Evaluation"],
